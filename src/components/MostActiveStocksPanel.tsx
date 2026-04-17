@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { fetchMostActive } from '../api';
 import type { Stock } from '../api';
 import { TrendingUp, TrendingDown, RefreshCw, BarChart3 } from 'lucide-react';
+import MockGraph from './MockGraph';
 
 const MostActiveStocksPanel: React.FC = () => {
   const [stocks, setStocks] = useState<Stock[]>([]);
@@ -25,6 +26,17 @@ const MostActiveStocksPanel: React.FC = () => {
     const interval = setInterval(loadData, 45000);
     return () => clearInterval(interval);
   }, []);
+
+  const generateMockData = (basePrice: number) => {
+    const data = [];
+    let currentPrice = basePrice;
+    for (let i = 0; i < 30; i++) {
+      const change = (Math.random() - 0.5) * basePrice * 0.1;
+      currentPrice += change;
+      data.push({ x: i, y: Math.max(currentPrice, basePrice * 0.7) });
+    }
+    return data;
+  };
 
   return (
     <div className="bg-slate-900/50 rounded-xl border border-slate-800 p-6">
@@ -101,11 +113,11 @@ const MostActiveStocksPanel: React.FC = () => {
               </button>
             </div>
             
-            <div className="h-64 flex items-center justify-center bg-slate-950 rounded-xl mb-6 border border-slate-800">
-               <div className="text-slate-500 text-center">
-                  <BarChart3 className="w-12 h-12 mx-auto mb-2 opacity-20" />
-                  <p>Price Chart for {selectedStock.ticker} (Mock-up)</p>
-               </div>
+            <div className="h-64 mb-6">
+              <MockGraph 
+                data={generateMockData(selectedStock.price)}
+                color="#3b82f6"
+              />
             </div>
 
             <div className="grid grid-cols-3 gap-4">
