@@ -13,7 +13,7 @@ function App() {
           </div>
           <div>
             <h1 className="text-3xl font-black tracking-tighter text-white uppercase italic">Trader<span className="text-blue-500">Dash</span></h1>
-            <p className="text-slate-500 text-xs font-bold tracking-[0.2em] uppercase">Professional Terminal v3.8</p>
+            <p className="text-slate-500 text-xs font-bold tracking-[0.2em] uppercase">Professional Terminal v3.9</p>
           </div>
         </div>
         <div className="flex items-center gap-6 bg-slate-900/80 px-6 py-3 rounded-2xl border border-slate-800 backdrop-blur-md shadow-xl">
