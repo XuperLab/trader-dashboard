@@ -1,6 +1,7 @@
 import MostActiveStocksPanel from './components/MostActiveStocksPanel'
 import CurrentAssetsPanel from './components/CurrentAssetsPanel'
 import AssetHistoryPanel from './components/AssetHistoryPanel'
+import { DataSourceIndicator } from './services/DataSourceIndicator'
 import { Layout } from 'lucide-react'
 
 function App() {
@@ -16,7 +17,8 @@ function App() {
             <p className="text-slate-500 text-xs font-bold tracking-[0.2em] uppercase">Professional Terminal v3.10</p>
           </div>
         </div>
-        <div className="flex items-center gap-6 bg-slate-900/80 px-6 py-3 rounded-2xl border border-slate-800 backdrop-blur-md shadow-xl">
+        <div className="flex items-center gap-4 bg-slate-900/80 px-6 py-3 rounded-2xl border border-slate-800 backdrop-blur-md shadow-xl">
+           <DataSourceIndicator />
            <div className="flex flex-col items-end">
               <span className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Market Status</span>
               <div className="flex items-center gap-2">
